@@ -41,6 +41,7 @@ class Cms::File < ActiveRecord::Base
   validates_attachment_presence :file
   validates :file_file_name,
     :uniqueness => {:scope => :site_id}
+  do_not_validate_attachment_file_type :file
   
   # -- Callbacks ------------------------------------------------------------
   before_save   :assign_label
